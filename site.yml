@@ -1,0 +1,25 @@
+---
+
+- hosts: localhost
+
+  roles:
+
+    - "x"
+    - "y"
+    - "z"	
+
+    - "tests/a"
+    - "tests/b"
+    - "tests/c"
+
+  tasks:
+    - name: "now in tasks: url="
+      debug: var=url
+
+    - name: url = t + url + /T
+      set_fact:
+        url: "t{{url}}/T"
+
+    - name: "final result"
+      debug: var=url
+

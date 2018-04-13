@@ -1,0 +1,14 @@
+---
+# tasks file for roles/z
+
+- debug: var=url
+
+
+- name: url = z + url + /Z
+  set_fact:
+    url: "z{{url}}/Z"
+
+- name: "should have 'Z' appended"
+  debug: var=url
+
+

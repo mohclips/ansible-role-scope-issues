@@ -1,0 +1,12 @@
+---
+# tasks file for roles/tests/b
+- debug: var=url
+
+- name: url = b + url + /B
+  set_fact:
+    url: "b{{url}}/B"
+
+- name: "should have 'B' appended"
+  debug: var=url
+
+
